@@ -1,0 +1,21 @@
+version: '3.8'
+name : postgress_sytem
+services:
+  postgress_db:
+    image: postgres:latest
+    restart: always
+    container_name: PostgresCont
+    environment:
+      - POSTGRES_USER=qasim
+      - POSTGRES_PASSWORD=my_password
+      - POSTGRES_DB=mydatabase
+    ports:
+      - '5433:5432'
+    volumes:
+      - postgress_db:/var/lib/postgresql/data
+volumes:
+  postgress_db:
+    driver: local
+networks:
+  default:
+    driver: bridge
