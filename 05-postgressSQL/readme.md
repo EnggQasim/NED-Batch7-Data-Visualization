@@ -13,3 +13,17 @@ ports:
 ![Alt text](image-1.png)
 
 https://chatgpt.com/share/4c03b4b0-3594-4b8e-b2be-3869c1777131
+
+
+----------
+# SQL queries
+
+```sql
+
+SELECT 
+	student_id,
+	student_name,
+	teacher_id
+FROM
+	students;
+```
