@@ -208,4 +208,86 @@ l2 : [int] = [3,5,20,100]
 ![Alt text](image-4.png)
 ![Alt text](image-5.png)
 
+# Dated 23 August 2024
+
+### Actual query
+```sql
+select Count(Distict city) From Customers;
+```
+#### Alternate Query
+```sql
+SELECT count(*) FROM (SELECT DISTINCT city FROM Customers);
+```
+
+```sql
+SELECT * FROM Customers
+WHERE CustomerID BETWEEN 10 AND 20;
+```
+
+```sql
+SELECT * FROM Customers
+WHERE CustomerID IN (1,3,5,10)
+```
+
+```sql
+
+SELECT * FROM Customers
+WHERE 
+country = "Germany" OR country = "UK"
+```
+### alternate query
+
+```sql
+
+SELECT * FROM Customers
+WHERE 
+country in ("Germany","UK")
+```
+
+```sql
+SELECT * FROM Customers
+WHERE City LIKE '%san%';
+```
+
+### order by
+```sql
+SELECT * FROM Products
+ORDER BY Price DESC;
+```
+
+### Insert
+```sql
+INSERT INTO students (student_id, student_name, teacher_id)
+VALUES (11,'waqas',1)
+
+INSERT INTO students 
+VALUES (12,'Hamza',2)
+```
+### insert multiple data
+```sql
+INSERT INTO Customers (CustomerName, ContactName, Address, City, PostalCode, Country)
+VALUES
+('Cardinal', 'Tom B. Erichsen', 'Skagen 21', 'Stavanger', '4006', 'Norway'),
+('Greasy Burger', 'Per Olsen', 'Gateveien 15', 'Sandnes', '4306', 'Norway'),
+('Tasty Tee', 'Finn Egan', 'Streetroad 19B', 'Liverpool', 'L1 0AA', 'UK');
+```
+
+### NULL
+
+```sql
+select * from students
+where student_name IS NULL;
+```
+
+### updateStudent
+
+```sql
+
+UPDATE students
+set
+student_name = 'Muhammad Qasim'
+WHERE
+student_id = 16
+```
+
 
