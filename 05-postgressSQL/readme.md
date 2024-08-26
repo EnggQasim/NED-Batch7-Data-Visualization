@@ -290,4 +290,113 @@ WHERE
 student_id = 16
 ```
 
+## Delete
+```sql
+DELETE FROM students
+WHERE 
+student_id = 16
+```
+
+### create new table for deleting data and table purpose.
+```sql
+
+CREATE TABLE staff (
+    staff_id SERIAL PRIMARY KEY,
+    staff_name VARCHAR(100),
+    salary VARCHAR(50)
+);
+
+INSERT INTO staff
+Values 
+(1,'ali',200000),
+(2,'Hamza',300000)
+
+SELECT * FROM staff
+```
+
+## LIMIT
+```sql
+select * from students
+LIMIT 2;
+```
+
+### Group By
+
+```sql
+SELECT MIN(student_id), teacher_id FROM students
+GROUP by teacher_id;
+```
+
+```sql
+select count(distinct teacher_id) as "unique1 teacher" from students
+
+```
+
+### Group 
+
+```sql
+SELECT * FROM (SELECT ProductID, SUM(Quantity) AS [Total product orders]
+              FROM OrderDetails
+              GROUP BY ProductID)
+ORDER BY [Total product orders] DESC
+```
+
+## JOINING and Sum 
+
+```sql
+SELECT  teacher_id, SUM(fee_amount) 
+FROM students
+LEFT JOIN fees ON students.student_id = fees.student_id
+group by teacher_id;
+```
+
+```sql
+SELECT * FROM Customers
+WHERE CustomerID NOT IN (SELECT CustomerID FROM Orders);
+```
+
+```sql
+SELECT * from fees
+where 
+fee_paid_date BETWEEN '2024-01-01' AND '2024-12-31'
+```
+
+------
+### Joining
+```sql
+select * from students
+select * from teachers
+select * from fees
+```
+
+## inner join student with teachers
+```sql
+select * from students AS s
+INNER JOIN teachers AS t
+ON s.teacher_id = t.teacher_id
+```
+
+```sql
+select * from students AS s
+INNER JOIN fees AS f
+ON s.student_id = f.student_id
+```
+
+## join three tables
+```sql
+select * from students AS s
+INNER JOIN fees AS f
+ON s.student_id = f.student_id
+INNER JOIN teachers AS t
+ON s.teacher_id=t.teacher_id
+```
+
+### best way to join three tables
+```sql
+SELECT * 
+FROM students AS s
+INNER JOIN teachers AS t ON s.teacher_id = t.teacher_id
+INNER JOIN fees AS f ON f.student_id = s.student_id;
+
+```
 
